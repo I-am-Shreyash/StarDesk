@@ -1,0 +1,34 @@
+#block-row {
+	margin-top: 30px;
+	width: 100%;
+}
+
+.col-2 {
+	border-radius: 4px;
+	text-align: center;
+	padding:15px;
+	color:white;
+}
+
+.col-2 span {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.col-2:hover {
+	transform:scale(1.1);
+	transition-timing-function: ease;
+    transition: 0.2s;
+}
+
+#block-1 {
+	background: linear-gradient( to right, #2582CF, #07C9F4);
+}
+
+#block-2 {
+	background: linear-gradient( to right, #07f54e, #05ebd7);
+}
+
+#block-3 {
+	background: linear-gradient( to right, #aa05eb, #eb05e7);
+}

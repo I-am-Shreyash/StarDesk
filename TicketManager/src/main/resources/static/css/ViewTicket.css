@@ -1,0 +1,57 @@
+#main-wrapper-div{
+	display: flex;
+	flex-direction: column;
+	width:100%;
+	padding:15px;
+}
+
+#back-button-div{
+	padding-bottom: 20px;
+}
+
+#back-button-div i {
+	padding:4px;
+}
+ 
+#back-button-div button {
+	background-color: #126cf3;
+	color:white;
+	border:none;
+	border-radius: 4px;
+	padding: 3px 12px 3px 8px;
+}
+ 
+#back-button-div button:hover {
+	background-color: #0a51bc;
+} 
+ 
+#ticket-wrapper {
+	border:1px solid black;
+	border-radius: 12px;
+	padding:15px;	
+	position:relative;
+}
+
+#ticket-wrapper span {
+	font-size: 14px;
+	font-weight:500;
+}
+
+#subject {
+	padding-bottom:4px;
+	border-bottom: 2px solid grey;
+	margin-bottom: 10px;
+}
+
+#ticket-description {
+	margin: 20px 0px 10px 0px;
+}
+
+#ticket-description textarea {
+	width:80%;
+	height:100px;
+}
+
+#snapshot {
+	margin-bottom: 25px;
+}

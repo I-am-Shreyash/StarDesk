@@ -1,0 +1,72 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Admin/AdminPage">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search Employee</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="/css/SearchEmployee.css">
+</head>
+<body>
+
+<div layout:fragment="content" style="display: flex; flex-direction: column;">
+ 
+  
+<div class="d-flex justify-content-center" id="nav-container">      
+ <nav class="navbar">
+  <div class="container-fluid">
+    <form class="d-flex" role="search" id="search-input-form" method="post" onsubmit=" return validate()" th:action="@{/Admin/searchEmployee-containing(userid=${adminData.adminId})}">
+      <input class="form-control form-control-sm me-2" id="inputId" type="search" placeholder="Search by Id" name="searchedId"aria-label="Search">
+      <input class="form-control form-control-sm me-2" id="inputSubj" type="search" placeholder="Search by Name" name="searchedName"aria-label="Search">
+      <button class="btn btn-outline-info" style="color:white;"type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+</div>
+
+<div style="align-self: center;">
+<div th:each = "employee : ${employee}" id="emp-card">
+    <div id="person">
+      <i class="bi bi-person-circle"></i>
+    </div>
+    <div >
+       <i>Name:</i> 
+       <br>
+       <span th:text = "${employee.empFname}"></span>
+       <span th:text = "${employee.empLname}"></span>
+       <br>
+       
+       <i>Employee id:</i>
+       <br>
+       <span th:text = "${employee.empId}"></span>
+       <br>
+       
+       <i>Email:</i>
+       <br>
+       <span th:text = "${employee.empEmail}"></span>
+     
+     </div>
+</div>
+
+</div>
+
+<script>
+
+  function validate() {
+	  var Id = document.getElementById('inputId').value;
+	  var Subj = document.getElementById('inputSubj').value;
+	
+	  if(Id == "" && Subj == ""){
+		  alert("Please enter a keyword");
+		  return false;
+	  }
+   }
+
+</script>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

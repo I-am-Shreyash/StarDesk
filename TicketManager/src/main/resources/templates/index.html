@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link rel="stylesheet" href="/css/index.css">
+
+
+<title>Ticket Manager</title>
+
+</head>
+<body data-bs-spy="scroll" data-bs-target="navbar">
+
+<div id="main-wrapper-div">
+
+  <nav class="navbar navbar-expand-md bg-body-tertiary"  id="navbar">
+    <div class="container-fluid">
+      <h4><a class="navbar-brand px-5" href="/StarDesk"  style="color:White;">StarDesk</a></h4>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+       <div id="nav-links" class="navbar-nav">
+        <a class="nav-link px-4 group" href="/StarDesk" >Home <i class="bi bi-house-fill"></i></a>
+        <a class="nav-link px-4 group" href="#cards-div">About us</a>
+        <a class="nav-link px-4 group" href="#contact-div">Contact</a>
+        <a class="nav-link px-4 group" href="/registerNew">Register</a>
+       </div>
+      </div>
+     </div>
+   </nav>
+
+    <div class="row" id="row-div"> 
+ 
+      <div id="image" class="col-lg-4 col-6 order-lg-last " >
+          <img class="floating" alt="" src="/images/LandingPg-vector.png">
+      </div>
+ 
+      <div id="banner" class="col-lg-8 order-lg-first " >
+         <h2><i>Streamline Your Experience with Our Ticketing System</i></h2>
+         <p><i>Welcome to our cutting-edge Help Desk Ticketing System, designed to simplify and enhance your support journey. Say goodbye to tangled communication threads and lost requests. With our intuitive platform, you can effortlessly raise, track, and resolve technical issues.</i></p>
+         <h5 style="font-size: 16px;"><i>Get started..</i></h5>
+         <button id="loginBtn">Login</button>
+      </div>
+      
+    </div>
+  
+</div>
+   
+   <!-- About -->
+   
+   <div class="row  justify-content-evenly" id="cards-div">
+   
+      <div class="card col-md-3 col-7">
+        <div class="content">
+         <p class="heading">Welcome to StarDesk</p>
+         <p class="para"> Your trusted partner in streamlining and enhancing your customer support and issue resolution processes.</p>
+        </div> 
+      </div>
+
+      <div class="card col-md-3 col-7">
+        <div class="content">
+         <p class="heading">User-friendly Interface</p>
+         <p class="para"> We've designed our system with the users in mind. It's easy to navigate, so your support agents and you can get started quickly & effortlessly.</p>
+        </div> 
+      </div>
+
+      <div class="card col-md-3 col-7">
+        <div class="content">
+         <p class="heading">Snapshot Compatible</p>
+         <p class="para"> To enhance our support process, we encourage you to utilize the snapshot feature, which will allow our support agent to assist you more effectively.</p>
+        </div> 
+      </div>
+               
+   </div>
+   
+   
+   <!-- Contact -->
+   
+   <div id="contact-div">
+   
+       <h3>Contact</h3>
+       <span><i>" Feel free to share your thoughts or queries. "</i></span>
+       
+       <div id="inner-contact-div" class="row justify-content-evenly">
+       
+           <div id="call" class="col-md-2 col-sm-6 col-12">
+            <i class="bi bi-whatsapp" style="color:green;"></i>
+            <br>
+            <span><a>+91 8177841225</a></span>
+           </div>
+           
+           <div id="email" class="col-md-2 col-sm-6 col-12">
+            <i class="bi bi-envelope-fill" style="color:#EA4335;"></i>
+            <br>
+            <span><a href="https://mail.google.com/mail/u/0/#compose" target="_blank">shreyashmeshram63@gmail.com</a></span>
+           </div>
+       
+           <div id="linkedin" class="col-md-2 col-sm-6 col-12">
+            <i class="bi bi-linkedin" style="color:blue"></i>
+            <br>
+            <span><a href="https://www.linkedin.com/in/shreyash-meshram-378039267" target="_blank">Shreyash Meshram</a></span>
+           </div>
+       
+           <div id="linkedin" class="col-md-2 col-sm-6 col-12">
+            <i class="bi bi-instagram" style="color:#D83F70"></i>
+            <br>
+            <span><a href="https://instagram.com/i_am_shreyash_63?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">i_am_shreyash_63</a></span>
+           </div>
+       
+       </div>
+   
+   </div>
+   
+   
+   <div id="footer">
+   <p>&copy; 2023 StarDesk. All Rights Reserved.</p> 
+   </div>
+   
+    <!-- Login Form -->
+ <div id="super-form-wrapper">
+    <div id="form-wrapper">
+  	   <button id="close"><i class="bi bi-x"></i></button>
+  	<div id="loginForm" class="form-container">
+		<h2>Welcome Back!</h2>
+		<form method="post" action="/login">
+			
+			<label>UserId</label>
+		    <div class="input-box">
+			   <i class="bi bi-person-fill"></i>
+			   <input type="text" name="loginId" id="loginId-input" autocomplete="off" maxlength="6" required> 
+		    </div>
+		    <label>Password</label>
+		    <div class="input-box">	
+			   <i class="bi bi-lock-fill"></i>
+			   <input type="password" name="loginPassword" required> 
+		    </div>
+			<input type="submit" value="Login" id="form-login-button">
+		
+		</form>	
+		<h6>Don't have an account? <a href="/registerNew">Register now!</a></h6>
+	</div>
+   </div>
+ </div>
+
+ 
+	
+	
+<script src="/js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+
+</body>
+</html>

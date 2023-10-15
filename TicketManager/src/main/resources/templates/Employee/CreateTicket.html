@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Employee/EmployeePage">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/CreateTicket.css">
+
+    <title>Create Ticket</title>
+</head>
+<body>
+    
+    <div layout:fragment="content">
+      
+       <form id="ticketForm" method="post" action="/generate-ticket" th:object="${ticket}" enctype="multipart/form-data" onSubmit="setTime()">
+       
+       <div id="heading-div">
+         <h5>Raise Your Issue</h5>
+       </div>
+         
+       <div class="row justify-content-evenly">
+         
+         <div class="col">
+         <label for="empName">Name :</label>
+         <br>
+         <input type="text" id="empName" class="bg-body-tertiary" name="createrName" th:value="${empData.empFname} +' ' +${empData.empLname}" readonly="readonly">
+         </div>
+         
+         <div class="col">
+         <label for="empId">Employee Id :</label>
+         <br>
+         <input type="text" id="empId" class="bg-body-tertiary" name="createrId"  th:value="${empData.empId}" readonly="readonly">
+         </div>
+         
+         <div class="col">
+         <label for="empEmail">Email id :</label>
+         <br>
+         <input type="text" id="empEmail" class="bg-body-tertiary" name="createrEmail" th:value="${empData.empEmail}"  readonly="readonly"> 
+         </div>
+         
+      </div>
+         
+         <label for="subject">Subject :</label>
+         <br>
+         <input type="text" id="subject" name="subject" required>
+         <br>
+         
+         <label for="description">Description :</label>
+         <br>
+         <textarea id="description" name="description" rows="6" cols="55" 
+         placeholder="Please describe your issue in breif" required></textarea>
+         <br>
+         
+         <label for="snapshot">Snapshot:</label>
+         <br>
+         <input type="file" id="snapshot" name="snapshotFile" onchange="checkFileSize()">
+         <br>
+         
+         <input type="hidden" name="ticketStatus" value="Open">
+         
+         <input type="hidden" name="time" id="time">
+         
+         <br>
+         <input type="submit" value="Generate" >
+         
+         </form> 
+    
+<script>
+function checkFileSize() {
+    const fileInput = document.getElementById('snapshot');
+    if (fileInput.files.length > 0) {
+      const fileSize = fileInput.files[0].size; // in bytes
+      if (fileSize > 1048576) {
+        alert("File size exceeds the maximum limit (1MB).");
+        fileInput.value = ""; // Clear the input
+      }
+    }
+  }
+
+function setTime() {
+    var currentTime = new Date();
+    var day = currentTime.getDate();
+    var month = currentTime.toLocaleString('default', { month: 'long' });
+    var year = currentTime.getFullYear();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    
+    var formattedTime = day + ' ' + month + ' ' + year + ' ' + hours + ':' + minutes;
+    
+    document.getElementById('time').value = formattedTime;
+    
+    alert("Ticket raised succesfully..");
+}
+
+</script>    
+    
+     </div>
+    
+</body>
+</html>

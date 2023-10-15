@@ -1,0 +1,77 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Employee/EmployeePage">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ticket</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/ViewTicket.css">
+
+</head>
+<body>
+
+<div layout:fragment="content">
+      
+<div id="main-wrapper-div">   
+   
+   <div id="back-button-div">
+ 
+       <a th:href="@{/show-my-ticket(userid=${empData.empId})}"><Button><i class="bi bi-arrow-left-circle-fill"></i>Back</Button></a>
+
+   </div>   
+  
+   
+   <div id="ticket-wrapper">
+
+       <div id="subject">
+       <h5 th:text="${ticket.subject}"></h5>
+       <span><i>ID:</i></span>
+       <span th:text="${ticket.ticketId}"></span>
+       </div>
+       
+       <span><i>By:</i></span>
+       <span th:text="${ticket.createrName}"></span>
+       <br>
+       <span><i>Email:</i></span>
+       <span th:text="${ticket.createrEmail}"></span>
+       <br>
+       <span><i>Time:</i></span>
+       <span th:text="${ticket.time}"></span>
+       <br>
+       <span><i>Status:</i></span>
+       <span th:text="${ticket.ticketStatus}"></span>
+       
+       <div id="ticket-description">
+       <span><i> Description: </i></span>
+       <br>
+       <textarea th:text="${ticket.description}"></textarea>
+       </div>
+       
+       <div id="snapshot">
+         <a th:if="${ticket.snapshot}" th:href="@{${ticket.snapshot}}" target="_blank">View Snapshot</a>
+       </div>
+
+       <div id="options">
+          
+          <a th:href="@{/Employee/delete-ticket(ticketId=${ticket.ticketId},userid=${empData.empId})}"><Button class="btn btn-danger" onclick="popupDelete()">Delete Ticket</Button></a>
+          
+       </div>
+
+   </div>
+
+</div>
+
+<script>
+
+ function popupDelete() {
+	 alert("Ticket deleted successfully");
+ }
+
+</script>
+
+</div> 
+      
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

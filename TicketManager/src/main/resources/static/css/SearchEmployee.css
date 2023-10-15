@@ -1,0 +1,26 @@
+#nav-container {
+	background-color: #803FFF;
+}
+
+#emp-card {
+	width:200px; 
+	margin:15px;
+	border:3px solid #00ffff;
+    text-align: center;
+    border-radius: 16px;
+    background-color: #d8ebfe;
+}
+
+#emp-card i {
+	font-size: 12px;
+}
+
+#emp-card span {
+	padding-top:10px; 
+	font-weight: 500;
+	font-size: 13px;
+}
+
+#person i{
+	font-size: 50px;
+}

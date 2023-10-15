@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/EmployeePage.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<title>Employee Page</title>
+
+</head>
+<body>
+
+<div id="main-wrapper">
+	
+	<div id="menu-div">
+	    
+	    <div id="logo-div">
+	      <h1>StarDesk</h1>
+	    </div>
+	    
+	    <div id="user-info-div">
+	      <h4><i class="bi bi-person-circle"></i></h4>
+	      <h6 id="username" style="margin:0px;">Hello, <span style="padding:4px;" th:text=${empData.empFname}></span> </h6>
+	      <span style=" font-size: 14px; display:block" th:text=${empData.empId}></span> 
+	    </div>
+	    
+	    <div id="menu-options-div">
+	      <ul class="list-group list-group-flush">
+             <li class="list-group-item bg-transparent"><a th:href="@{/Employee/Dash-home(userid=${empData.empId})}"><i class="bi bi-grid-1x2-fill"></i>Dashboard</a></li>
+             <li class="list-group-item bg-transparent"><a th:href="@{/Employee/create-ticket(userid=${empData.empId})}"><i class="bi bi-ticket-perforated-fill"></i>Create ticket</a></li>
+             <li class="list-group-item bg-transparent"><a th:href="@{/show-my-ticket(userid=${empData.empId})}"><i class="bi bi-list-task"></i>My tickets</a></li>
+             <li class="list-group-item bg-transparent"><a th:href="@{/search-ticket(userid=${empData.empId})}"><i class="bi bi-search"></i>Search ticket</a></li>
+             <li class="list-group-item bg-transparent"><a href="/StarDesk"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
+          </ul>
+	    </div>
+	
+	</div>
+	
+	<div id="content-div">
+	
+	   <div id="content-head-div">
+
+	           <img src="/images/EmpDashAnimation.gif"></img>
+	    
+	           <h3 style="display:inline; margin-left:18%;">Employee dashboard</h3>
+
+	   </div>
+	   
+	   <div id="content-page" class="overflow-auto">
+	       <div id="content-page-div" layout:fragment="content">
+               <!--  content section -->
+           </div>
+	   </div>
+	
+	</div>
+	
+ </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+</body>
+</html>
